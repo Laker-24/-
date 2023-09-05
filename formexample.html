@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单元素测试</title>
+</head>
+<body>
+    <!--文本框和密码框示例-->
+    <!-- <form action="data.html" method="get">
+        用户名:<input type="text" name="username"><br/>
+        密码:<input type="password" name="pwd">
+        <br/>
+        <input type="submit" value="提交">
+        <input type="reset" value="重填">
+    </form> -->
+    <div id="login">
+        <form action="data.html" method="get">
+            <div>
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username"/>
+                <span>*</span>
+            </div>
+            <div>                                
+                <label for="pwd">密码</label>
+                <input type="password" id="pwd" name="pwd"/>
+                <span>*</span>
+            </div>
+            <div class="footer">
+                <input type="submit" value="提交"/>
+                <input type="reset" value="重填"/>
+            </div>
+            <div class="tip">
+                <p>说明:用户名和密码必填</p>
+            </div>
+            <!--单选框示例-->
+            性别:
+        <label>
+        <input type="radio" name="sex" value="male" checked="checked">男
+        </label>
+        <label>
+        <input type="radio" name="sex" value="female">女
+        </label>
+        <br/>
+            <!--复选框示例-->
+            爱好:
+        <label>
+            <input type="checkbox" name="like" value="football">足球
+        </label>
+        <label>
+            <input type="checkbox" name="like" value="basketball">篮球
+        </label>
+        <input type="submit" value="提交"/>
+        </form>
+        <!--列表框示例1-->
+        <form>
+            专业:
+        <select name="major">
+            <option value="0">计算机科学与技术</option>
+            <option value="1" selected="selected">软件工程</option>
+            <option value="2">网络工程</option>
+        </select>
+        </form>
+        <!--列表框示例2-->
+        <form>
+            专业特长:<br/>
+            <select name="master" size="4" multiple="multiple">
+                <option value="0">.NET编程</option>
+                <option value="1">J2EE编程</option>
+                <option value="2">Java编程</option>
+                <option value="3">Android编程</option>
+                <option value="4">C语言编程</option>
+            </select>
+        </form>
+
+        <!--文件域-->
+        <form>
+            附件:<input type="file" name="myfile" accept="image/*">
+        </form>
+
+        <!--图片预览示例-->
+        <form method="post" action="#" enctype="multipart/form-data">
+            <p>图片预览:</p>
+            <p></p>
+            <div id="test-image-preview" style="border: 1px solid silver;width: 100%;height: 200px;background-repeat: no-repeat;background-position: center;">
+            </div>
+            <p></p>
+            <p>
+                <input type="file" id="test-image-file" name="test">
+            </p>
+            <p id="test-file-info">没有选择文件</p>
+        </form>
+        <script>
+            var fileInput=document.getElementById('test-image-file');
+            var info=document.getElementById('test-file-info');
+            var preview=document.getElementById('test-image-preview');
+            fileInput.addEventListener('change',function(){//监听change事件
+                preview.style.backgroundImage="";//清除背景图片
+                if(!fileInput.value){
+                    info.innerHTML='没有选择文件';
+                    return;
+                    
+                }
+                var file=fileInput.files[0];//获取File引用
+                //获取File信息:
+                info.innerHTML='文件:'+file.name+'<br>'+'修改:'+file.lastModifiedDate;
+                if(file.type!=='image/jpeg'&&file.type!=='image/png'&&file.type!=='image/gif'){
+                    alert('不是有效的图片文件!');
+                    return;
+                }
+                var reader=new FileReader();//读取文件
+                reader.onload=function(e){//发起一个异步操作来读取文件内容
+                    var data=e.target.result;//data串形如:'data:image/jpeg;base64,/9j/4AAQSk……(base64编码)……'
+                    preview.style.backgroundImage='url('+data+')';
+                };
+                reader.readAsDataURL(file);//以DataURL的形式读取文件
+            });
+        </script>
+
+        <!--文本区域示例-->
+        <form>
+            简历:<br>
+            <textarea name="intro" cols="50" rows="10">请填写个人简历</textarea>
+        </form>
+
+         <!--普通按钮示例-->
+        <input type="button" value="确定" onclick="foo()"></div>
+        <script>
+            function foo(){
+                alert('你点击了按钮');
+            }
+        </script>
+        <!--日期框示例-->
+        <div>
+        <input type="date" name="mydate"></div>
+        
+        <!--区间域-->
+        <div>
+        <form>
+            成绩
+            <input type="range" id="score" name="score" min="0.0" max="100.0" step="0.5" value="60.0">
+            <span id="msg"></span>
+        </form>
+        <script>
+            var msg=document.getElementById("msg");
+            window.onload=function(){
+                msg.innerHTML=docu.getElementById("score").value;
+            }
+
+            document.getElementById("score").onchange=function(){
+                msg.innerHTML=this.value;
+            }
+        </script>
+    </div>
+    </div>
+
+
+    <!--样式-->
+    <style>
+        div{
+            width: 300px;
+            margin: 10px auto;
+            text-align: center;
+        }
+        label{
+            display: inline-block;
+            width: 80px;
+            text-align: right;
+        }
+        span{
+            color: red;
+        }
+        .footer{
+            margin-left: -4px;
+        }
+        .tip{
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</body>
+</html>
