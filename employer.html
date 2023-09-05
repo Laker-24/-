@@ -11,6 +11,7 @@
         <h1>应聘面试登记表</h1> 
         </caption>
         <table border="1">
+            <!--第一栏-->
                 <tr>
                     <td colspan="7">基本信息</td>
                 <tr>
@@ -59,17 +60,144 @@
                 <tr>
                     <td colspan="2">&nbsp;</td>
                     <td colspan="3"></td>
-                    <td></td>
+                    <td></td>    
+                </tr>
+                <!--第二栏-->
+                <tr>
+                    <td colspan="7">教育经历</td>
+                </tr>
+                <tr>
+                    <td colspan="2">起止时间</td>
+                    <td colspan="2">学校名称</td>
+                    <td colspan="2">学历/专业</td>
+                    <td>证明人</td>
+                </tr>
+                <tr>
+                    <td colspan="2">20XX.XX.XX-20XX.XX.XX</td>
+                    <td colspan="2">安徽财经大学</td>
+                    <td colspan="2">本科/财务管理</td>
+                    <td>张老师</td>
+                </tr>
+                <!--第三栏-->
+                <tr>
+                    <td colspan="7">工作经历</td>
+                </tr>
+                <tr>
+                    <td colspan="2">起止时间</td>
+                    <td colspan="2">公司名称</td>
+                    <td colspan="2">部门/岗位</td>
+                    <td colspan="2">证明人</td>
+                </tr>
+                <tr>
+                    <td colspan="2">20XX.XX.Xx-20XX.XX.XX</td>
+                    <td colspan="2">大星科技有限公司</td>
+                    <td colspan="2">财务部/财务专员</td>
+                    <td>王晓丽</td>
+                </tr>
+                <tr>
+                    <td colspan="2">20XX.XX.XX-20XX.XX.XX</td>
+                    <td colspan="2">华美贸易有限公司</td>
+                    <td colspan="2">财务部/财务专员</td>
+                    <td colspan="2">刘晓华</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">离职原因</td>
+                    <td colspan="6">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="6">&nbsp;</td>
+                </tr>
+                <!--第四栏-->
+                <tr>
+                    <td colspan="7">家庭信息</td>
+                </tr>
+                <tr>
+                    <td>姓名</td>
+                    <td>称谓</td>
+                    <td>年龄</td>
+                    <td colspan="3">工作单位</td>
+                    <td>联系方式</td>
+                </tr>
+                <tr>
+                    <td>张明</td>
+                    <td>妇女</td>
+                    <td>52</td>
+                    <td colspan="3">xxxxxxxxxxxx</td>
+                    <td>158*****369</td>
+                </tr>
+                <tr>
+                    <td>王红</td>
+                    <td>母女</td>
+                    <td>50</td>
+                    <td colspan="3">xxxxxxxxxxxx</td>
+                    <td>158*****370</td>
+                </tr>
+                <tr>
+                    <td>紧急联系人</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">与紧急联系人关系</td>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <!--第五栏-->
+                <tr>
+                    <td colspan="7">录用情况</td>
+                </tr>
+                <tr>
+                    <td>所属部门</td>
+                    <td>职务</td>
+                    <td>到岗时间</td>
+                    <td>试用期薪资</td>
+                    <td>转正薪资</td>
+                    <td>上级领导</td>
+                    <td>部门负责人</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>人事经理意见:</td>
+                    <td colspan="3">&nbsp;</td>
+                    <td>总经理意见:</td>
+                    <td colspan="2">&nbsp;</td>
                 </tr>
                 </tr>
         </table>
+        
+        <form>
+            <div style="margin-left: 0px;">
+            是否因违法犯罪受过处理:
+            <label>
+            <input type="radio" name="judge" value="true">是
+            </label>
+            <label>
+            <input type="radio" name="judge" value="false">否
+            </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            是否有数额过万的未清偿债务:
+            <input type="radio" name="judge" value="true">是
+            <input type="radio" name="judge" value="false">否
+        </div>
+        <div style="margin-left: -90px;">
+            <h5>本人承诺以上信息均为真实有效,如若造假或情况不实,自愿承担一切后果。</h5>
+        </div>
+        <div style="margin-left: 100px;">
+            <h5>本人签名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日期:</h5>
+        </div>
+        </form>
+        
     </div>
 </body>
 </html>
 
 <style>
     div{
-        width: 1000px;
+        width: 1200px;
         margin: 10px auto;
         text-align: center;
     }
