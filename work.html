@@ -4,6 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>课后练习</title>
+    <style>
+      h2 {
+        color: rebeccapurple;
+      }
+      div {
+        width: 380px;
+        margin: 10px auto;
+        text-align: center;
+      }
+      select{
+        width: 80px;
+      }
+      label{
+                display: inline-block;
+                width: 70px;
+                text-align: right;
+            }
+      p{
+        margin: -13px
+        
+      }
+      span {
+        color: red;
+      }
+      .footer {
+        margin-left: -4px;
+      }
+    </style>
+    
   </head>
   <body>
     <div id="register">
@@ -116,16 +145,6 @@
           />
           <span style="color: black" id="msg"></span>
         </div>
-        <script>
-          var msg = document.getElementById("msg");
-          window.onload = function () {
-            msg.innerHTML = docu.getElementById("salary").value;
-          };
-
-          document.getElementById("salary").onchange = function () {
-            msg.innerHTML = this.value;
-          };
-        </script>
         <div>
           <label style="margin-left: 3px;">个人爱好:</label>
           <label style="margin-left: -10px;">
@@ -155,38 +174,6 @@
             ></div>
             <div id="test-file-info">没有选择文件</div>
         </form>
-        <script>
-          var fileInput = document.getElementById("test-image-file");
-          var info = document.getElementById("test-file-info");
-          var preview = document.getElementById("test-image-preview");
-          fileInput.addEventListener("change", function () {
-            //监听change事件
-            preview.style.backgroundImage = ""; //清除背景图片
-            if (!fileInput.value) {
-              info.innerHTML = "没有选择文件";
-              return;
-            }
-            var file = fileInput.files[0]; //获取File引用
-            //获取File信息:
-            info.innerHTML =
-              "文件:" + file.name + "<br>" + "修改:" + file.lastModifiedDate;
-            if (
-              file.type !== "image/jpeg" &&
-              file.type !== "image/png" &&
-              file.type !== "image/gif"
-            ) {
-              alert("不是有效的图片文件!");
-              return;
-            }
-            var reader = new FileReader(); //读取文件
-            reader.onload = function (e) {
-              //发起一个异步操作来读取文件内容
-              var data = e.target.result; //data串形如:'data:image/jpeg;base64,/9j/4AAQSk……(base64编码)……'
-              preview.style.backgroundImage = "url(" + data + ")";
-            };
-            reader.readAsDataURL(file); //以DataURL的形式读取文件
-          });
-        </script>
         <div>
           <label style="margin-left: 20px;">个人简历:</label>
           <textarea style="width: 60%;" name="intro" cols="50" rows="10"></textarea>
@@ -197,82 +184,96 @@
         </div>
       </form>
     </div>
+    <script>
+      var msg = document.getElementById("msg");
+      window.onload = function () {
+        msg.innerHTML = docu.getElementById("salary").value;
+      };
+
+      document.getElementById("salary").onchange = function () {
+        msg.innerHTML = this.value;
+      };
+    </script>
+    <script>
+      var fileInput = document.getElementById("test-image-file");
+      var info = document.getElementById("test-file-info");
+      var preview = document.getElementById("test-image-preview");
+      fileInput.addEventListener("change", function () {
+        //监听change事件
+        preview.style.backgroundImage = ""; //清除背景图片
+        if (!fileInput.value) {
+          info.innerHTML = "没有选择文件";
+          return;
+        }
+        var file = fileInput.files[0]; //获取File引用
+        //获取File信息:
+        info.innerHTML =
+          "文件:" + file.name + "<br>" + "修改:" + file.lastModifiedDate;
+        if (
+          file.type !== "image/jpeg" &&
+          file.type !== "image/png" &&
+          file.type !== "image/gif"
+        ) {
+          alert("不是有效的图片文件!");
+          return;
+        }
+        var reader = new FileReader(); //读取文件
+        reader.onload = function (e) {
+          //发起一个异步操作来读取文件内容
+          var data = e.target.result; //data串形如:'data:image/jpeg;base64,/9j/4AAQSk……(base64编码)……'
+          preview.style.backgroundImage = "url(" + data + ")";
+        };
+        reader.readAsDataURL(file); //以DataURL的形式读取文件
+      });
+    </script>
+    <script>
+      var cityList = new Array();
+      cityList[0] = new Array("武汉", "黄石", "十堰", "襄阳", "鄂州");
+      cityList[1] = new Array("石家庄", "唐山", "秦皇岛", "保定");
+      cityList[2] = new Array("郑州", "开封", "洛阳", "信阳");
+      cityList[3] = new Array("太原", "大同", "临沂", "运城");
+      cityList[4] = new Array("济南", "青岛", "淄博", "烟台");
+      cityList[5] = new Array("沈阳", "大连", "鞍山", "锦州");
+      cityList[6] = new Array("长春", "四平", "通化", "松原");
+      cityList[7] = new Array("哈尔滨", "齐齐哈尔", "鹤岗", "大庆");
+      cityList[8] = new Array("南京", "无锡", "徐州", "连云港");
+      cityList[9] = new Array("杭州", "宁波", "温州", "嘉兴");
+      cityList[10] = new Array("合肥", "芜湖", "淮南", "淮北");
+      cityList[11] = new Array("福州", "厦门", "莆田", "泉州");
+      cityList[12] = new Array("南昌", "景德镇", "九江", "萍乡");
+      cityList[13] = new Array("长沙", "株洲", "湘潭", "衡阳");
+      cityList[14] = new Array("广州", "深圳", "珠海", "汕头");
+      cityList[15] = new Array("海口", "三亚", "三沙", "儋州");
+      cityList[16] = new Array("成都", "自贡", "攀枝花", "绵阳");
+      cityList[17] = new Array("贵阳", "六盘水", "遵义", "安顺");
+      cityList[18] = new Array("昆明", "曲靖", "玉溪", "丽江");
+      cityList[19] = new Array("西安", "铜川", "咸阳", "延安");
+      cityList[20] = new Array("兰州", "嘉峪关", "天水", "武威");
+      cityList[21] = new Array("西宁", "海东");
+      cityList[22] = new Array("台北", "高雄", "基隆", "台中");
+      cityList[23] = new Array("朝阳区", "海淀区", "东城区", "西城区");
+      cityList[24] = new Array("和平区", "南开区", "津南区", "滨海新区");
+      cityList[25] = new Array("黄浦区", "徐汇区", "长宁区", "静安区");
+      cityList[26] = new Array("万州区", "渝中区", "江北区", "沙坪坝区");
+      cityList[27] = new Array("中西区", "湾仔区", "东区", "南区");
+      cityList[28] = new Array("花地玛堂区", "圣安多尼堂区", "大堂区", "望德堂区");
+      cityList[29] = new Array("呼和浩特", "包头", "赤峰", "鄂尔多斯");
+      cityList[30] = new Array("南宁", "柳州", "桂林", "梧州");
+      cityList[31] = new Array("拉萨", "日喀则", "林芝", "昌都");
+      cityList[32] = new Array("银川", "石嘴山", "吴忠", "固原", "中卫");
+      cityList[33] = new Array("乌鲁木齐", "克拉玛依", "吐鲁番", "哈密");
+    
+      function changeprovince(val) {
+        var city = document.getElementById("city");
+        city.options.length = 0;
+        var arr = cityList[val];
+        for (var i = 0; i < arr.length; i++) {
+          var option = document.createElement("option");
+          option.innerHTML = arr[i];
+          option.value = arr[i];
+          city.appendChild(option);
+        }
+      }
+    </script>
   </body>
 </html>
-<script>
-  var cityList = new Array();
-  cityList[0] = new Array("武汉", "黄石", "十堰", "襄阳", "鄂州");
-  cityList[1] = new Array("石家庄", "唐山", "秦皇岛", "保定");
-  cityList[2] = new Array("郑州", "开封", "洛阳", "信阳");
-  cityList[3] = new Array("太原", "大同", "临沂", "运城");
-  cityList[4] = new Array("济南", "青岛", "淄博", "烟台");
-  cityList[5] = new Array("沈阳", "大连", "鞍山", "锦州");
-  cityList[6] = new Array("长春", "四平", "通化", "松原");
-  cityList[7] = new Array("哈尔滨", "齐齐哈尔", "鹤岗", "大庆");
-  cityList[8] = new Array("南京", "无锡", "徐州", "连云港");
-  cityList[9] = new Array("杭州", "宁波", "温州", "嘉兴");
-  cityList[10] = new Array("合肥", "芜湖", "淮南", "淮北");
-  cityList[11] = new Array("福州", "厦门", "莆田", "泉州");
-  cityList[12] = new Array("南昌", "景德镇", "九江", "萍乡");
-  cityList[13] = new Array("长沙", "株洲", "湘潭", "衡阳");
-  cityList[14] = new Array("广州", "深圳", "珠海", "汕头");
-  cityList[15] = new Array("海口", "三亚", "三沙", "儋州");
-  cityList[16] = new Array("成都", "自贡", "攀枝花", "绵阳");
-  cityList[17] = new Array("贵阳", "六盘水", "遵义", "安顺");
-  cityList[18] = new Array("昆明", "曲靖", "玉溪", "丽江");
-  cityList[19] = new Array("西安", "铜川", "咸阳", "延安");
-  cityList[20] = new Array("兰州", "嘉峪关", "天水", "武威");
-  cityList[21] = new Array("西宁", "海东");
-  cityList[22] = new Array("台北", "高雄", "基隆", "台中");
-  cityList[23] = new Array("朝阳区", "海淀区", "东城区", "西城区");
-  cityList[24] = new Array("和平区", "南开区", "津南区", "滨海新区");
-  cityList[25] = new Array("黄浦区", "徐汇区", "长宁区", "静安区");
-  cityList[26] = new Array("万州区", "渝中区", "江北区", "沙坪坝区");
-  cityList[27] = new Array("中西区", "湾仔区", "东区", "南区");
-  cityList[28] = new Array("花地玛堂区", "圣安多尼堂区", "大堂区", "望德堂区");
-  cityList[29] = new Array("呼和浩特", "包头", "赤峰", "鄂尔多斯");
-  cityList[30] = new Array("南宁", "柳州", "桂林", "梧州");
-  cityList[31] = new Array("拉萨", "日喀则", "林芝", "昌都");
-  cityList[32] = new Array("银川", "石嘴山", "吴忠", "固原", "中卫");
-  cityList[33] = new Array("乌鲁木齐", "克拉玛依", "吐鲁番", "哈密");
-
-  function changeprovince(val) {
-    var city = document.getElementById("city");
-    city.options.length = 0;
-    var arr = cityList[val];
-    for (var i = 0; i < arr.length; i++) {
-      var option = document.createElement("option");
-      option.innerHTML = arr[i];
-      option.value = arr[i];
-      city.appendChild(option);
-    }
-  }
-</script>
-<style>
-  h2 {
-    color: rebeccapurple;
-  }
-  div {
-    width: 380px;
-    margin: 10px auto;
-    text-align: center;
-  }
-  select{
-    width: 80px;
-  }
-  label{
-            display: inline-block;
-            width: 70px;
-            text-align: right;
-        }
-  p{
-    margin: -13px
-    
-  }
-  span {
-    color: red;
-  }
-  .footer {
-    margin-left: -4px;
-  }
-</style>
