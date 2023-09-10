@@ -58,11 +58,11 @@
           <label for="email">注册邮箱:</label>
           <input type="text" name="email" placeholder="例如:wustzz@sina.com" />
           <span>必填</span>
-        </div>
-        验证码:
-        <div>
+          <div class="input">
+            <span>验证码：</span><input name="code" size="10" type="text" placeholder="请输入验证码"> 
+            <img src="/images/vertify.png" name="codeImage" onclick="refresh()" />
+          </div>
           
-        </div>
         <div>
           <label style="margin-left: -80px;" for="sex">性别:</label>
           <label style="margin-left: -20px;">
@@ -274,6 +274,13 @@
           city.appendChild(option);
         }
       }
+    </script>
+    <script>
+        function refresh() {
+	//验证有缓存机制，浏览器会认为是同一个验证，所以要刷新
+	loginForm.codeImage.src = "/images/vertify.png?id" + Math.random();
+}
+
     </script>
   </body>
 </html>
