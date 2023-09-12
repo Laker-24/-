@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            width: 200px;
+            text-align: center; 
+            font-size: 1.1rem;
+            box-shadow: 5px 10px 5px silver;
+            border-radius: 8px;
+            }
+            .card img {
+            width: 100%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            opacity: 0.8; /*不透明度0.8*/
+            }
+            .card img:hover {
+            opacity: 1; /*完全不透明*/
+            }
+            .card:hover {
+            color: red; 
+            cursor: pointer;
+            /*阴影颜色变深*/
+            box-shadow: 5px 10px 5px gray; 
+            }
+            .city {
+            padding-top: 5px;
+            padding-bottom: 10px;
+            }
+            </style>
+</head>
+<body>
+    <div class="card">
+        <img src="images/a1.jpg"/>
+        <div class="city">
+        <p>湖北 武汉</p>
+        </div>
+        </div>
+</body>
+</html>
