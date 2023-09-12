@@ -31,6 +31,43 @@
       .footer {
         margin-left: -4px;
       }
+      .yzm{
+          height: 90px;
+          margin-bottom: -40px;
+          margin-top: 5px;
+          position: relative;
+          width: 76%;
+          line-height: 35px;
+      }
+      .YZM_code{
+        width:50%;
+        height: 30%;
+        margin-top: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        padding-left: 20px;
+      }
+      .YZM_pic{
+        display:block;
+        width: 30%;
+        height: 40%;
+        background-color: purple;
+        color: #FFF;
+        position:absolute;
+        border-radius: 10px;
+        top: 10px;
+        left: 90%;
+        border-right: 5px;
+        text-align: center;
+      }
+      .YZM_error{
+        width: 70%;
+        color:red;
+        font-size: 14px;
+        margin: 0 auto;
+        height: 20px;
+        line-height: 20px;
+      }
     </style>
     
   </head>
@@ -58,13 +95,15 @@
           <label for="email">注册邮箱:</label>
           <input type="text" name="email" placeholder="例如:wustzz@sina.com" />
           <span>必填</span>
-          <div class="input"> 
-            <span>验证码：</span><input name="code" size="10" type="text" placeholder="请输入验证码"> 
-            <img src="/images/vertify.png" name="codeImage" onclick="refresh()" />
+          <div class="yzm"> 
+            <label style="margin-left:-30px;">验证码:</label>
+            <input type="text" name="code" id="YZM_Input" class="YZM_code" placeholder="请输入验证码">
+            <span id="code" class="YZM_pic" title="看不清，换一张">A12C</span>
+            <div class="YZM_error" id="errorTips"></div>
           </div>
           
-        <div>
-          <label style="margin-left: -80px;" for="sex">性别:</label>
+        <div style="position: relative;">
+          <label style="margin-left: -80px;margin-top: 5px;" for="sex">性别:</label>
           <label style="margin-left: -20px;">
             <input type="radio" name="sex" value="male" checked="checked" />男
           </label>
@@ -275,11 +314,42 @@
         }
       }
     </script>
-    <script>
-        function refresh() {
-	//验证有缓存机制，浏览器会认为是同一个验证，所以要刷新
-	loginForm.codeImage.src = "/images/vertify.png?id" + Math.random();
-}
+    <script type="text/javascript">
+      document.getElementById("code").onclick=changelmg;
+      function changelmg(){
+        var arrays=new Array(
+          '1','2','3','4','5','6','7','8','9','0',
+          'a','b','c','d','e','f','g','h','i','j',
+          'k','l','m','n','o','p','q','r','s','t',
+          'u','v','w','x','y','z',
+          'A','B','C','D','E','F','G','H','I','J',
+          'K','L','M','N','O','P','Q','R','S','T',
+          'U','V','W','X','Y','Z'
+        );
+        code=""
+        //随机从数据中获取四个验证码
+        for(var i=0;i<4;i++){
+          var r=parseInt(Math.random()*arrays.length);
+          code+=arrays[r];
+        }
+        document.getElementById("code").innerHTML=code;
+
+      }
+      function check(){
+        var error;
+        var codeInput=document.getElementById("YZM_Input").value;
+        if(codeInput.toLowerCase()==code.toLowerCase()){
+          console.log("123");
+          return true;
+        }
+        else{
+          error='验证码错误，重新输入';
+          document.getElementById("errorTips").innerHTML=error;
+          return false;
+        }
+
+      }
+
 
     </script>
   </body>
