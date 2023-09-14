@@ -8,8 +8,14 @@
       h2 {
         color: rebeccapurple;
       }
+      .register{
+        width: 600px;
+        margin: 10px auto;
+        text-align: center;
+        border:1px solid black;
+      }
       div {
-        width: 380px;
+        width: 400px;
         margin: 10px auto;
         text-align: center;
       }
@@ -40,7 +46,7 @@
           line-height: 35px;
       }
       .YZM_code{
-        width:50%;
+        width:45%;
         height: 30%;
         margin-top: 10px;
         font-size: 16px;
@@ -56,7 +62,7 @@
         position:absolute;
         border-radius: 10px;
         top: 10px;
-        left: 90%;
+        left: 85%;
         border-right: 5px;
         text-align: center;
       }
@@ -72,7 +78,7 @@
     
   </head>
   <body>
-    <div id="register">
+    <div class="register">
       <form action="data.html" method="post">
         <h2>欢迎注册会员</h2>
         <div>
@@ -204,6 +210,7 @@
             <div
               id="test-image-preview"
               style="
+              margin-left: 130px;
                 border: 1px solid silver;
                 width: 50%;
                 height: 200px;
@@ -214,9 +221,9 @@
             ></div>
             <div id="test-file-info"></div>
         </form>
-      <div style="margin-left: -20px;">
-          <label style="margin: 10px;line-height: 40px;padding-top: 5px;">个人简历:</label>
-         <textarea style="width: 50%;position: relative;" name="intro" cols="50" rows="10"></textarea>
+      <div style="margin-left: 35px;">
+          <label style="position: absolute;top: 800px;left: 630px;">个人简历:</label>
+          <textarea style="width: 50%;position: relative;" name="intro" cols="50" rows="10"></textarea>
         </div>
         <div class="footer">
           <input type="submit" value="提交" />&nbsp;&nbsp;&nbsp;
