@@ -94,15 +94,15 @@
         </div>
         <div>
           <label for="password">创建密码:</label>
-          <input type="text" name="pwd" maxlength="8" placeholder="8位密码" />
+          <input type="text" id="password" name="pwd" maxlength="8" placeholder="8位密码" />
           <span>必填</span>
         </div>
         <div>
           <label for="email">注册邮箱:</label>
-          <input type="text" name="email" placeholder="例如:wustzz@sina.com" />
+          <input type="text" id="email" name="email" placeholder="例如:wustzz@sina.com" />
           <span>必填</span>
           <div class="yzm"> 
-            <label style="margin-left:-30px;">验证码:</label>
+            <label for="YZM_Input" style="margin-left:-30px;">验证码:</label>
             <input type="text" name="code" id="YZM_Input" class="YZM_code" placeholder="请输入验证码">
             <span id="code" class="YZM_pic" title="看不清，换一张">A12C</span>
             <div class="YZM_error" id="errorTips"></div>
@@ -120,8 +120,8 @@
           <input type="date" name="mydate" />
         </div>
         <div>
-          <label style="margin-left: -35px;" for="age">年龄:</label>
-          <input type="text" name="age" />
+          <label for="age" style="margin-left: -35px;">年龄:</label>
+          <input type="text" id="age" name="age" />
         </div>
         <div>
           <label style="margin-left: -40px;">籍贯:</label>
@@ -222,7 +222,7 @@
             <div id="test-file-info"></div>
         </form>
       <div style="margin-left: 35px;">
-          <label style="position: absolute;top: 800px;left: 630px;">个人简历:</label>
+          <label>个人简历:</label>
           <textarea style="width: 50%;position: relative;" name="intro" cols="40" rows="10"></textarea>
         </div>
         <div class="footer">
