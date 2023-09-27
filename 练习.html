@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-       #title{
-        font-size: 16px;
-        height: 30px;
-        vertical-align: middle;
-       }
-       P{
-        text-indent: 2rem;
-       }
-       /* .highlight:hover{
-        background-color: lightblue;
-       } */
+      .item:nth-child(1) {
+        color: brown;
+      }
+      .item:nth-child(2) {
+        color: blue;
+      }
+      .new-item {
+        color: aqua;
+      }
     </style>
-</head>
-<body>
-    <h1>This is a Heading</h1>
+  </head>
+  <body>
+    <button>创建</button>
+    <input type="text" id="username" value="zzz" />
+    <button id="del">删除</button>
+    <script>
+      let btn = document.querySelector("button");
 
-<div class="highlight">This is a paragraph.</div>
+      let list = document.createElement("ul"); //创建1个ul元素
+      list.id = "list"; // 设置元素的id属性
+      document.body.appendChild(list);
 
-<p class="highlight">This is another paragraph.</p>
-</body>
+      btn.addEventListener("click", function () {
+        let u = document.getElementById("username");
+        let item = document.createElement("li"); //循环创建3个li元素
+        item.className = "item"; // 设置元素的class属性
+        item.innerText = u.value; // 设置元素的innerText属性 (使用了模板字符串)
+        list.appendChild(item); // 将创建好的元素添加到父节点
+      });
+      let del = document.getElementById("del"); //删除
+      del.addEventListener("click", function () {
+        let item = document.querySelector(".item");
+        item.parentNode.removeChild(item);
+      });
+
+    </script>
+  </body>
 </html>

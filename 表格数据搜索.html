@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/表格搜素.css"/>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="myInput" placeholder="搜索公司..." />
+    <table id="myTable">
+      <tr class="header">
+        <th style="width: 60%">公司名称</th>
+        <th style="width: 40%">国家</th>
+      </tr>
+      <tr>
+        <td>Alfreds Futterkiste</td>
+        <td>Germany</td>
+      </tr>
+      <tr>
+        <td>Berglunds snabbkop</td>
+        <td>Sweden</td>
+      </tr>
+      <tr>
+        <td>Island Trading</td>
+        <td>UK</td>
+      </tr>
+      <tr>
+        <td>Koniglich Essen</td>
+        <td>Germany</td>
+      </tr>
+    </table>
+    <script>
+      function search() {
+        let input = document.getElementById("myInput");
+        let filter = input.value.toUpperCase();
+        let table = document.getElementById("myTable");
+        let tr = table.querySelectorAll("tr");
+        // 循环表格每一行，查找匹配项
+        for (let i = 0; i < tr.length; i++) {
+          let td = tr[i].querySelectorAll("td")[0]; //获得第一列（公司名称）
+          if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+      let input = document.getElementById("myInput");
+      input.addEventListener("input", search);
+      JS代码.NET架构;
+    </script>
+  </body>
+</html>
