@@ -8,7 +8,7 @@
 
 body
 {
-    background: #000 url(bg.jpg);
+    background: #000 url(/images/壁纸.jpg);
     background-attachment: fixed;
     background-blend-mode: hard-light;
 }
@@ -19,7 +19,7 @@ body
     left: 100px;
     right: 100px;
     bottom: 80px;
-    background: url(bg.jpg);
+    background: url(/images/壁纸.jpg);
     background-attachment: fixed;
     display: flex;
     justify-content: center;
